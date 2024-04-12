@@ -1,0 +1,51 @@
+DROP DATABASE IF EXISTS rsg;
+CREATE DATABASE rsg;
+
+\c rsg;
+
+CREATE TABLE item (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR NOT NULL UNIQUE,
+  password VARCHAR NOT NULL UNIQUE
+);
+
+INSERT INTO item (username, password)
+  VALUES ('enriquezempo', 'enrique1234');
+
+INSERT INTO item (username, password)
+  VALUES ('luisramos', 'luis1234');
+
+
+
+CREATE TABLE account (
+  id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+  pubkey VARCHAR UNIQUE NOT NULL,
+  amount DECIMAL(20, 2) NOT NULL DEFAULT 0,
+  item_id INT REFERENCES item(id) ON DELETE RESTRICT
+);
+
+INSERT INTO account (pubkey, amount, item_id)
+  VALUES ('CLV-3000-0001', 12331293.123, 1);
+
+INSERT INTO account (pubkey, amount, item_id)
+  VALUES ('CLV-3000-0002', 325137.99, 1);
+
+INSERT INTO account (pubkey, amount, item_id)
+  VALUES ('CLV-3000-0004', 454325145643734.99777, 1);
+
+INSERT INTO account (pubkey, amount, item_id)
+  VALUES ('CLV-3000-0003', 984223429382.99, 2);
+
+INSERT INTO account (pubkey, amount, item_id)
+  VALUES ('CLV-3000-0005', 6454353215.988, 2);
+
+
+
+CREATE TABLE history (
+  id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+  amount DECIMAL(20, 2) NOT NULL,
+  destination_id INT REFERENCES account (id) ON DELETE RESTRICT,
+  created_at VARCHAR NOT NULL
+);
+
+

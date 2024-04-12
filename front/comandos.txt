@@ -1,0 +1,17 @@
+Creamos un proyecto next.js desde cero
+-> npx create-next-app@latest
+
+Agregamos zod para la validacion de campos
+-> yarn add zod
+
+Para imlementar sesiones
+-> yarn add jsonwebtoken cookie jose
+
+
+
+para modo desarrollo 
+-> yarn run dev
+
+Para modo produccion
+-> yarn run build
+-> yarn run start

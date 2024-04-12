@@ -1,0 +1,31 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--| Comandos de aplicacion "back" express
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Preparamos package.json
+-> yarn init
+
+Agregamos express
+-> yarn add express --save
+
+Instalamos conector a postgresql
+-> yarn add pg
+
+Agregamos lector de .env archivo
+-> yarn add dotenv
+
+Agregamos nodemon para cambios en desarrollo
+-> yarn add nodemon
+
+Agregamos zod para validacion
+-> yarn add zod
+
+Agregamos cors
+-> yarn add cors
+
+
+Arrancamos el proyecto en modo desarrollo
+-> yarn run dev 
+
+Arrancamos el proyecto en pre produccion
+-> yarn run start
